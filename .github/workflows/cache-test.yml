@@ -11,6 +11,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Create cache folder
+        run: mkdir -p ~/.cache/demo
+
       - name: Cache dependencies
         id: cache
         uses: actions/cache@v4
@@ -19,4 +22,4 @@ jobs:
           key: cache-326a757
 
       - name: prime-cache-326a757
-        run: echo "Cache hit: ${{ steps.cache.outputs.cache-hit }}"
+        run: echo Cache hit: ${{ steps.cache.outputs.cache-hit }}
